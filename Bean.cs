@@ -13,6 +13,9 @@ public class Bean : MonoBehaviour
     public float delay = 1f; // Jump
     bool grounded; // Sjekker om karakteren rører bakken
 
+    public List<GameObject> john_heart = new List<GameObject>(); // Liste som inneholder hjertene
+    int Hearts = 0;
+
     // Update is called once per frame
     void Update()
     {
@@ -39,7 +42,7 @@ public class Bean : MonoBehaviour
 
     }
 
-    private void FixedUpdate() // 50fps
+    void FixedUpdate() // 50fps
     {
         if (space_press) // Sjekker om space blir trykket
         {
@@ -52,7 +55,18 @@ public class Bean : MonoBehaviour
         john_hanks.velocity = new Vector3(0, john_hanks.velocity.y, bean_horizontal*speed); // Legger til fart i z-aksen
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        Respawn(); //Calls the function
+    }
 
+    void Respawn()
+    {
+        this.transform.position = new Vector3(0, 1.79f, 0); // Gjør at kameraet starter på x = 0, y = 1.79 og z = 0
+        john_heart[Hearts].SetActive(false); // Gjør at et hjerte fjernes
+        Hearts++; // Fjerner hjertet fra starten av lista som ble laget i Unity
+
+    }
 
 }
 //19 to 50
