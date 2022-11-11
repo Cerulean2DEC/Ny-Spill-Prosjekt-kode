@@ -8,13 +8,15 @@ public class Move : MonoBehaviour
     float bean_horizontal = 1;
     float speed = 10f;
     float rotation_y = 0;
-    // Update is called once per frame
+
+
     void Update()
     {
     }
 
     void FixedUpdate()
     {
+        // Setter kordinatene på hvor fienden skal gå, 0 på x, rb.velocity.y for å bruke positionen den alerede er på, og bean_horizontal*speed for å bestemme farten den går på z-aksen
         rb.velocity = new Vector3(0, rb.velocity.y, bean_horizontal * speed);
         Debug.Log(bean_horizontal);
     }

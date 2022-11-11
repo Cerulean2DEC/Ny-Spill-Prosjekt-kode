@@ -80,7 +80,11 @@ public class Bean : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Respawn(); //Calls the function
+        if (other.tag == "Death") // Hvis spilleren rører et objekt som er tagget med "Death" blir denne true
+        {
+            Respawn(); //Calls the "Respawn" function
+        }
+        
     }
 
     void Respawn()
@@ -97,4 +101,3 @@ public class Bean : MonoBehaviour
     }
 
 }
-//19 to 50
