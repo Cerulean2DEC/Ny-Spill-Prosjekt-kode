@@ -15,7 +15,7 @@ public class teleport : MonoBehaviour
     {
         if(other.tag == "Finish")
         {
-            transform.position = new Vector3(17.88f, 1.22f, 0);
+            transform.position = new Vector3(-13.53f, 1f, -24.8f);
 
         }
     }
